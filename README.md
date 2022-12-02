@@ -3,8 +3,6 @@
 ![image](https://user-images.githubusercontent.com/39723411/205220727-e9cca01c-b1f4-4afe-875c-a53c7790ca0e.png)
 
 
-
-
 ## Too Large file to upload in github
 [Place it into AGC2021/](https://drive.google.com/file/d/1N2NAxBDdmVgf5J8tL_hMXRNuW1TKJUk4/view?usp=sharing)
 
