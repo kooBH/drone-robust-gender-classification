@@ -21,8 +21,8 @@ from GenderClassification.Gender import Gender
 
 
 def eval(path,hp,buffer,window,denoising,vad,dsp,gender,device="cuda:0"):
+    #Loading waveform
     raw = rs.load(path,sr=hp.de.sr,mono=False)[0]
-    #raw = raw[:,1300000:2000000]
     len_data = int(raw.shape[1]/hp.bm.n_chunk)
 
     idx = 0
@@ -57,7 +57,7 @@ def eval(path,hp,buffer,window,denoising,vad,dsp,gender,device="cuda:0"):
             #print(denoised_mag.shape)
 
 
-            ## VAD
+            ## energy based VAD
             is_utterance =  vad.feed(denoised_mag[0,:,:])
 
             if not is_utterance :
@@ -69,7 +69,8 @@ def eval(path,hp,buffer,window,denoising,vad,dsp,gender,device="cuda:0"):
                 ts = int(idx*hp.bm.n_chunk/16000)
                 output["ts"].append(ts)
             
-        ## Utterance Generated
+        ## Utterance Generated : Utterance would be splited into 10 max_frames length and return 10 outputs.
+        # max_frames ex) if 11sec utter with 200 max_frames : utter1 : 0~2.0sec, utter 2 0.9~2.8sec ..... 9.2~10 sec
         if flag_ret : 
             ts = int(np.ceil(idx*hp.bm.n_chunk/16000))
             output["ts"].append(ts)
@@ -84,6 +85,7 @@ def eval(path,hp,buffer,window,denoising,vad,dsp,gender,device="cuda:0"):
             dsp.Process(utt,n_frame_utt)
 
             ## GenderClassification
+            # where 10 output would be get
             pred = gender.infer(utt[0])
 
             if pred == 2: 
@@ -189,14 +191,14 @@ if __name__ == "__main__" :
 
     # Gender Classification
     gender = Gender(
-        nOut=hp.gd.nOut,
-        device=device,
-        max_frames=hp.gd.max_frames
-        ,model=hp.gd.model,
-        version=hp.gd.version,
-        n_class=hp.gd.n_class,
-        thr = hp.gd.thr,
-        sr = hp.gd.sr
+        nOut=hp.gd.nOut, # Speaker Embedding dimension
+        device=device, # Device number
+        max_frames=hp.gd.max_frames, # utterance level length (ex) 200 = 2seconds)
+        model=hp.gd.model, # model selection) ex) RawNet3?
+        version=hp.gd.version, #test version
+        n_class=hp.gd.n_class, #n_class
+        thr = hp.gd.thr, #postprocessing threshold(detection threshold -)
+        sr = hp.gd.sr #sample rate
         )
     
     total_score = 0
