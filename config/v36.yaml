@@ -1,0 +1,12 @@
+vad:
+
+  pre_unit : 4
+  thr_up : 8
+  thr_down : 8
+---
+dsp:
+  epsiBF : 0.0001 # 1e-3 ~ 1e-6, low -> weak
+  epsiSVE : 0.0001 # 1e-3  ~ 1e-6, low -> weak
+---
+gd:
+  max_frames : 300

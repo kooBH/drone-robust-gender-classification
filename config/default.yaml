@@ -1,0 +1,49 @@
+bm:
+  n_chunk : 1024
+  n_unit : 4
+  n_hop : 4
+  max_unit : 400
+  pre_unit : 4
+---
+de:
+  n_fft : 1024
+  n_hop : 256
+  sr : 16000
+
+---
+vad:
+  thr_energy : 0.04
+  pre_unit : 4
+  thr_up : 8
+  thr_down : 8
+  max_utterance : 400
+---
+se:
+  active : off
+  version : 0
+  n_fft : 512
+  n_hop : 256
+  sr : 16000
+---
+dsp:
+  n_fft : 256
+  n_hop : 64
+  sr : 8000
+  epsiBF : 0.001 # 1e-3 ~ 1e-6, low -> weak
+  epsiSVE : 0.001 # 1e-3  ~ 1e-6, low -> weak
+---
+gd:
+  sr : 16000
+  n_class : 3
+  nOut : 256
+  max_frames : 200
+  model: "RawNet"
+  version : "10"
+  thr : 3
+---
+m2:
+  method : "max" # max, max2,threshold,ratio
+  thr_ans : 1
+  max2:
+    thr : 0.5
+  ratio : 0.4
