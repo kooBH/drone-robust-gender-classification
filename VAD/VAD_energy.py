@@ -111,11 +111,9 @@ class VAD():
                         if self.log :
                             print("VAD::off_speech {}".format(val))
 
-
                 # off_speech
                 else :
                     pass
-        #print("VAD::{:.4f} | {} | {}| {}".format(val,self.cnt,self.activation,self.state))
         return self.is_utterance
 
     def clear(self):
