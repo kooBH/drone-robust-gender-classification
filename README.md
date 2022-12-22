@@ -3,10 +3,17 @@
 ![image](https://user-images.githubusercontent.com/39723411/205220727-e9cca01c-b1f4-4afe-875c-a53c7790ca0e.png)
 
 
-see ```eval_2022.py``` for detail usage. 
-
 ## Too Large file to upload in github
 [Place it into AGC2021/](https://drive.google.com/file/d/1N2NAxBDdmVgf5J8tL_hMXRNuW1TKJUk4/view?usp=sharing)
+
+
+## Usage
+
+```
+python run.py -d <cuda:0 or cuda:1 or cpu> -i <directory_of_input_files>  -o <directory_of_output_files>
+```
+
+see ```run.py``` for detail usage. 
 
 
 # Acknowledgement
