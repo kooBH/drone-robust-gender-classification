@@ -9,8 +9,8 @@ from FSN_modules import *
 from FullSubnetPlus import FullSubNet_Plus
 
 
-class SE(device="cuda:0"):
-    def __init__(self,path="",n_fft=512,n_hop=256):
+class SE():
+    def __init__(self,path="",n_fft=512,n_hop=256,device="cuda:0"):
         self.device = device
         self.n_fft = n_fft
         self.n_hop = n_hop
