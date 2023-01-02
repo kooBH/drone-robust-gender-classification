@@ -3,8 +3,7 @@
 ![image](https://user-images.githubusercontent.com/39723411/205220727-e9cca01c-b1f4-4afe-875c-a53c7790ca0e.png)
 
 
-
- For autonomous rescue drones, it is important to recognize rescue requester. Since there are lots of noise sources in a disaster area including drone itself, such system requires also denoising and voice activity detection. This code provides a male-woman-child recognition system for rescue drones which is written in Python, based on Pytorch.
+ For autonomous rescue drones, it is important to recognize rescue requesters. Since there are lots of noise sources in a disaster area including the drone itself, such a system also requires denoising and voice activity detection. This code provides a male-woman-child recognition system for rescue drones which is written in Python, based on Pytorch.
 
 
 ---
