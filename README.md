@@ -10,9 +10,16 @@
 
 Man-Woman-Child recognition for mobile drone with [UMA-8](https://www.minidsp.com/products/usb-audio-interface/uma-8-microphone-array?gclid=CjwKCAiA-8SdBhBGEiwAWdgtcKlf8YIUjy-Bmm8vfHFDcEtS490jpcv3MwUBBPvpt2K5mIKh9NLl8BoCSooQAvD_BwE). 
 
-## Too Large file to upload in github
+## set up
+
+### Too Large file to upload in github
 [Place it into AGC2021/](https://drive.google.com/file/d/1N2NAxBDdmVgf5J8tL_hMXRNuW1TKJUk4/view?usp=sharing)
 
+### libDSP.so  
++ DSP/ARM/libDSP.so : compiled on NVIDIA Xavier NX    
++ DSP/x86/libDSP.so : compiled on Intel CPU    
+
+Place selected ```libDSP.so``` into DSP/libDSP.so  
 
 ## Usage
 
